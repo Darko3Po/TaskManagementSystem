@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Taks index page</h1>
+
 </body>
 </html>

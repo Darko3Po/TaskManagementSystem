@@ -10,9 +10,38 @@ class TaskController extends Controller
 
     public function index()
     {
-        $task = Task::where('completed',false)->orderBy('priority','desc')->orderBy('due_date')->get();
+        $tasks = Task::where('completed',false)->orderBy('priority','desc')->orderBy('due_date')->get();
 
-        dump($task);
-        return view('task.index', compact('task'));
+        dump($tasks);
+        return view('tasks.index', compact('tasks'));
     }
+
+    public function create()
+    {
+        return view('tasks.create');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+           'title'=>'require|max:255',
+           'description'=>'nullable',
+           'priority'=>'require|max:255',
+           'due_date'=>'require|max:255',
+        ]);
+        Task::create([
+            'title'=>$request->input('title');
+            'description'=>$request->input('description');
+            'priority'=>$request->input('priority');
+            'due_date'=>$request->input('due_date');
+        ]);
+
+        return redirect()->route('tasks.index');
+    }
+
+    public function edit()
+    {
+        return view('tasks.create');
+    }
+
 }
