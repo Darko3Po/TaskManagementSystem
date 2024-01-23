@@ -36,7 +36,7 @@ class TaskController extends Controller
             'due_date'=>$request->input('due_date');
         ]);
 
-        return redirect()->route('tasks.index');
+        return redirect()->route('tasks.index')-with('success',"Task Created Successfully");
     }
 
     public function edit()
