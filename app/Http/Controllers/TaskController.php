@@ -38,9 +38,28 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success',"Task Created Successfully");
     }
 
-    public function edit()
+    public function edit(Task $task)
     {
-        return view('tasks.create');
+        return view('tasks.edit', compact('task'));
+    }
+
+    public function update(Request $request, Task $task)
+    {
+        //validating data from the form
+        $request->validate([
+            'title'=>'required|max:255',
+            'description'=>'nullable',
+            'priority'=>'required|in:low,medium,high',
+            'due_date'=>'required|max:255',
+        ]);
+        $task->update([
+            'title'=>$request->input('title'),
+            'description'=>$request->input('description'),
+            'priority'=>$request->input('priority'),
+            'due_date'=>$request->input('due_date'),
+        ]);
+
+        return redirect()->route('tasks.index')->with('success',"Task Updated Successfully");
     }
 
 }
