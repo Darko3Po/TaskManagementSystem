@@ -22,9 +22,9 @@
 </div>
 
 <div class="container">
+    {{--Button for create task and show completed tasks--}}
     <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3">Create Task</a>
-{{--    <a href="{{ route('taskshow') }}" class="btn btn-secondary mb-3">Show Completed tasks</a>--}}
-
+    <a href="{{ route('taskshow') }}" class="btn btn-secondary mb-3">Show Completed tasks</a>
     <table class="table table-bordered">
         <thead class="thead-dark">
         <tr>

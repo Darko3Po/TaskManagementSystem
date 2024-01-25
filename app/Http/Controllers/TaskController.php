@@ -78,4 +78,11 @@ class TaskController extends Controller
 
         return redirect()->route('tasks.index')->with('delete',"Task Completed Successfully");
     }
+
+    public function showCompletedTasks()
+    {
+        $completedTasks = Task::where('completed',true)->get();
+
+        return view('tasks.completedtasks', compact('completedTasks'));
+    }
 }

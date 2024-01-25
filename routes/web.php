@@ -28,3 +28,5 @@ Route::put('/tasks/{task}',[TaskController::class,'update'])->name('tasks.update
 
 Route::delete('/tasks/{task}',[TaskController::class,'destroy'])->name('tasks.destroy');
 Route::post('/tasks/{task}/completed',[TaskController::class,'completed'])->name('tasks.complete');
+
+Route::get('/taskshow',[TaskController::class,'showCompletedTasks'])->name('taskshow');
