@@ -56,14 +56,14 @@
                             <i class="fa fa-trash"></i> Delete
                         </button>
                     </form>
-{{--                    @if (!$task->completed)--}}
-{{--                        <form action="{{ route('tasks.complete', $task->id) }}" method="POST" style="display: inline;">--}}
-{{--                            @csrf--}}
-{{--                            <button type="submit" class="btn btn-warning btn-sm">--}}
-{{--                                <i class="fa fa-check"></i> Complete--}}
-{{--                            </button>--}}
-{{--                        </form>--}}
-{{--                    @endif--}}
+                    @if (!$task->completed)
+                        <form action="{{ route('tasks.complete', $task->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            <button type="submit" class="btn btn-warning btn-sm">
+                                <i class="fa fa-check"></i> Complete
+                            </button>
+                        </form>
+                    @endif
                 </td>
 
 
